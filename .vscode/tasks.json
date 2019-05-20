@@ -12,6 +12,13 @@
             "problemMatcher": "$tsc"
         },
         {
+            "label": "test",
+            "command": "dotnet",
+            "type": "process",
+            "args": ["test"],
+            "problemMatcher": "$tsc"
+        },
+        {
             "label": "publish",
             "command": "dotnet",
             "type": "process",
