@@ -8,7 +8,7 @@ namespace AlgoTest
         [Fact]
         public void Test1()
         {
-
+            
         }
     }
 }
