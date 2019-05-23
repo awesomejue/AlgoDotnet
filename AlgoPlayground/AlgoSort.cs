@@ -21,12 +21,17 @@ namespace AlgoPlayground
       this.list = list;
     }
 
-    virtual public void sort()
+    virtual public void Sort()
     {
-      
+
     }
 
-    virtual public bool validate()
+    override public string ToString()
+    {
+      return String.Concat(list);
+    }
+
+    public bool Validate()
     {
       for (int i = 1; i < list.Count; i++)
       {

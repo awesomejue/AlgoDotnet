@@ -19,9 +19,19 @@ namespace AlgoTest
     public void mergeSortTest()
     {
       var list = ToSortList();
-      Console.WriteLine(list.ToString());
       var sorter = new AlgoSort(ToSortList());
-      sorter.sor
+      Console.WriteLine("Sort string: " + sorter.ToString());
+
+      sorter.Sort();
+
+      if (sorter.Validate() == true)
+      {
+        Console.WriteLine("Sorted: " + sorter.ToString());
+      }
+      else
+      {
+        Console.WriteLine("Sorter validate failed!!");
+      }
     }
   }
 }
