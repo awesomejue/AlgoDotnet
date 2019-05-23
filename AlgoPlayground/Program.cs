@@ -6,9 +6,7 @@ namespace AlgoPlayground
     {
         static void Main(string[] args)
         {
-            var sort = new AlgoSort();
-            // Console.WriteLine("Hello World!");
-            
+            Console.WriteLine("Hello World!");            
         }
     }
 }
