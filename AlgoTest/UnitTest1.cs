@@ -16,10 +16,10 @@ namespace AlgoTest
     }
 
     [Fact]
-    public void mergeSortTest()
+    public void SelectionSortTest()
     {
       var list = ToSortList();
-      var sorter = new AlgoSort(ToSortList());
+      var sorter = new SelectionSort(ToSortList());
       Console.WriteLine("Sort string: " + sorter.ToString());
 
       sorter.Sort();

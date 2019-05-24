@@ -12,7 +12,7 @@ namespace AlgoPlayground
     }
   }
 
-  public class AlgoSort
+  public abstract class AlgoSort
   {
     public List<IComparable> list { get; set; }
 
@@ -21,10 +21,7 @@ namespace AlgoPlayground
       this.list = list;
     }
 
-    virtual public void Sort()
-    {
-
-    }
+    abstract public void Sort();
 
     override public string ToString()
     {
