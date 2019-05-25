@@ -18,19 +18,33 @@ namespace AlgoTest
     [Fact]
     public void SelectionSortTest()
     {
-      var list = ToSortList();
       var sorter = new SelectionSort(ToSortList());
-      Console.WriteLine($"Sort string: `{sorter.ToString()}`");
+      SortTest(sorter);
+    }
+
+    [Fact]
+    public void InsertSortTest()
+    {
+      var sorter = new InsertSort(ToSortList());
+      SortTest(sorter);
+    }
+
+    public void SortTest(IAlgoSort sorter)
+    {      
+      Console.WriteLine($"Sorter: {sorter.GetType()}");
+
+      var list = ToSortList();
+      Console.WriteLine($"Sort list: `{sorter}`");
 
       sorter.Sort();
 
       if (sorter.Validate() == true)
       {
-        Console.WriteLine($"Sorted: `{sorter.ToString()}`");
+        Console.WriteLine($"Sorted: `{sorter}`");
       }
       else
       {
-        Console.WriteLine($"Sorter validate failed, `{sorter.ToString()}`");
+        Console.WriteLine($"Sorter validate failed, `{sorter}`");
       }
 
       Assert.True(sorter.Validate());

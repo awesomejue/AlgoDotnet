@@ -22,21 +22,25 @@ namespace AlgoPlayground
     }
   }
 
-  public abstract class AlgoSort
+  public interface IAlgoSort
+  {
+      void Sort();
+      bool Validate();
+  }
+
+  public abstract class AlgoSortBase : IAlgoSort
   {
     public List<IComparable> List { get; set; }
 
-    public AlgoSort(List<IComparable> list)
+    public float TimeCostSeconds { get; private set; }
+
+    public AlgoSortBase(List<IComparable> list)
     {
       this.List = list;
+      this.TimeCostSeconds = 0;
     }
 
     abstract public void Sort();
-
-    override public string ToString()
-    {
-      return String.Concat(List);
-    }
 
     public bool Validate()
     {
@@ -48,6 +52,11 @@ namespace AlgoPlayground
         }
       }
       return true;
+    }
+
+    override public string ToString()
+    {
+      return String.Concat(List);
     }
   }
 }

@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 namespace AlgoPlayground
 {
-  public class SelectionSort : AlgoSortBase
+  public class InsertSort : AlgoSortBase
   {
-    public SelectionSort(List<IComparable> list) : base(list)
+    public InsertSort(List<IComparable> list) : base(list)
     {
     }
 
@@ -18,14 +18,13 @@ namespace AlgoPlayground
       }
 
       var toSortList = this.List;
-      for (int i = 0; i < toSortList.Count; i++)
+      int listCount = toSortList.Count;
+      for (int i = 1; i < listCount; i++)
       {
-        int min = i;
-        for (int j = i; j < toSortList.Count; j++)
+        for (int j = i; j > 0 && toSortList[j].Lessthan(toSortList[j - 1]); j--)
         {
-          min = toSortList[min].Lessthan(List[j]) ? min : j;
+          toSortList.Swap(j, j - 1);
         }
-        toSortList.Swap(min, i);
       }
     }
   }
