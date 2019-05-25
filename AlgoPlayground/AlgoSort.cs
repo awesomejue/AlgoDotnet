@@ -12,27 +12,37 @@ namespace AlgoPlayground
     }
   }
 
+  public static class IListExtension
+  {
+    public static void Swap<T>(this IList<T> list, int left, int right)
+    {
+      T temp = list[left];
+      list[left] = list[right];
+      list[right] = temp;
+    }
+  }
+
   public abstract class AlgoSort
   {
-    public List<IComparable> list { get; set; }
+    public List<IComparable> List { get; set; }
 
     public AlgoSort(List<IComparable> list)
     {
-      this.list = list;
+      this.List = list;
     }
 
     abstract public void Sort();
 
     override public string ToString()
     {
-      return String.Concat(list);
+      return String.Concat(List);
     }
 
     public bool Validate()
     {
-      for (int i = 1; i < list.Count; i++)
+      for (int i = 1; i < List.Count; i++)
       {
-        if (list[i].Lessthan(list[i - 1]))
+        if (List[i].Lessthan(List[i - 1]))
         {
           return false;
         }

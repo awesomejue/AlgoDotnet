@@ -12,7 +12,21 @@ namespace AlgoPlayground
 
     override public void Sort()
     {
+      if (this.List == null || this.List.Count == 0)
+      {
+        return;
+      }
 
+      var toSortList = this.List;
+      for (int i = 0; i < toSortList.Count; i++)
+      {
+        int min = i;
+        for (int j = i; j < toSortList.Count; j++)
+        {
+          min = toSortList[min].Lessthan(List[j]) ? min : j;
+        }
+        toSortList.Swap(min, i);
+      }
     }
   }
 }

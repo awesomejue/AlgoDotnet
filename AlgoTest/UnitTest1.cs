@@ -8,9 +8,9 @@ namespace AlgoTest
 {
   public class UnitTestSort
   {
-    public static readonly string ToSortString = "Awesome sort!!";
+    static readonly string ToSortString = "Amazing sort test 3 1 4 8 2!!";
 
-    public static List<IComparable> ToSortList()
+    List<IComparable> ToSortList()
     {
       return ToSortString.Select(c => (IComparable)c).ToList();
     }
@@ -20,18 +20,20 @@ namespace AlgoTest
     {
       var list = ToSortList();
       var sorter = new SelectionSort(ToSortList());
-      Console.WriteLine("Sort string: " + sorter.ToString());
+      Console.WriteLine($"Sort string: `{sorter.ToString()}`");
 
       sorter.Sort();
 
       if (sorter.Validate() == true)
       {
-        Console.WriteLine("Sorted: " + sorter.ToString());
+        Console.WriteLine($"Sorted: `{sorter.ToString()}`");
       }
       else
       {
-        Console.WriteLine("Sorter validate failed!!");
+        Console.WriteLine($"Sorter validate failed, `{sorter.ToString()}`");
       }
+
+      Assert.True(sorter.Validate());
     }
   }
 }
