@@ -21,10 +21,20 @@ namespace AlgoPlayground
       int listCount = toSortList.Count;
       for (int i = 1; i < listCount; i++)
       {
-        for (int j = i; j > 0 && toSortList[j].Lessthan(toSortList[j - 1]); j--)
+        IComparable value = toSortList[i];
+        int j = i - 1;
+        for (; j >= 0; j--)
         {
-          toSortList.Swap(j, j - 1);
+          if (value.Lessthan(toSortList[j]))
+          {
+            toSortList[j + 1] = toSortList[j];
+          }
+          else
+          {
+            break;
+          }
         }
+        toSortList[j + 1] = value;
       }
     }
   }
