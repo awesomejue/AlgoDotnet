@@ -29,8 +29,15 @@ namespace AlgoTest
       SortTest(sorter);
     }
 
+    [Fact]
+    public void MergeSortTest()
+    {
+      var sorter = new MergeSort(ToSortList());
+      SortTest(sorter);
+    }
+
     public void SortTest(IAlgoSort sorter)
-    {      
+    {
       Console.WriteLine($"Sorter: {sorter.GetType()}");
 
       var list = ToSortList();

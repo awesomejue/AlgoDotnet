@@ -17,15 +17,53 @@ namespace AlgoPlayground
         return;
       }
 
-      var toSortList = this.List;
-
-      // MergeSort(List.)
+      mergeSort(this.List, 0, this.List.Count - 1);
     }
 
-    // List<IComparable> MergeSort(List<IComparable> left, List<IComparable> right)
-    // {
+    void mergeSort(List<IComparable> list, int left, int right)
+    {
+      if (left >= right)
+      {
+        return;
+      }
 
-    // }
+      int mid = (left + right) / 2;
+      mergeSort(list, left, mid);
+      mergeSort(list, mid + 1, right);
+      merge(list, left, mid, mid + 1, right);
+    }
 
+    void merge(List<IComparable> list, int left1, int right1, int left2, int right2)
+    {
+      IComparable[] array = new IComparable[right2 - left1];
+
+      int i = left1, j = left2, k = 0;
+      while (i <= right1 && j <= right2)
+      {
+        if (list[i].Lessthan(list[j]))
+        {
+          array[k++] = list[i++];
+        }
+        else
+        {
+          array[k++] = list[j++];
+        }
+      }
+
+      while (i <= right1)
+      {
+        array[k++] = list[i++];
+      }
+
+      while (j <= right2)
+      {
+        array[k++] = list[j++];
+      }
+
+      for (int index = 0; index < array.Length; index++)
+      {
+        list[left1 + index] = array[index];
+      }
+    }
   }
 }
