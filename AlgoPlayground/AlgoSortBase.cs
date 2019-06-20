@@ -24,8 +24,8 @@ namespace AlgoPlayground
 
   public interface IAlgoSort
   {
-      void Sort();
-      bool Validate();
+    void Sort();
+    bool Validate();
   }
 
   public abstract class AlgoSortBase : IAlgoSort

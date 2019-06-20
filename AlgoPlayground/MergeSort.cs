@@ -30,15 +30,14 @@ namespace AlgoPlayground
       int mid = (left + right) / 2;
       mergeSort(list, left, mid);
       mergeSort(list, mid + 1, right);
-      merge(list, left, mid, mid + 1, right);
+      merge(list, left, mid, right);
     }
 
-    void merge(List<IComparable> list, int left1, int right1, int left2, int right2)
+    void merge(List<IComparable> list, int left, int mid, int right)
     {
-      IComparable[] array = new IComparable[right2 - left1];
-
-      int i = left1, j = left2, k = 0;
-      while (i <= right1 && j <= right2)
+      IComparable[] array = new IComparable[right - left + 1];
+      int i = left, j = mid + 1, k = 0;
+      while (i <= mid && j <= right)
       {
         if (list[i].Lessthan(list[j]))
         {
@@ -50,19 +49,19 @@ namespace AlgoPlayground
         }
       }
 
-      while (i <= right1)
+      while (i <= mid)
       {
         array[k++] = list[i++];
       }
 
-      while (j <= right2)
+      while (j <= right)
       {
         array[k++] = list[j++];
       }
 
       for (int index = 0; index < array.Length; index++)
       {
-        list[left1 + index] = array[index];
+        list[left + index] = array[index];
       }
     }
   }
