@@ -36,6 +36,13 @@ namespace AlgoTest
       SortTest(sorter);
     }
 
+    [Fact]
+    public void QuickSortTest()
+    {
+      var sorter = new QuickSort(ToSortList());
+      SortTest(sorter);
+    }
+
     public void SortTest(IAlgoSort sorter)
     {
       Console.WriteLine($"Sorter: {sorter.GetType()}");
