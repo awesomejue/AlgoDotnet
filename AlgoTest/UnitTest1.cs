@@ -38,8 +38,8 @@ namespace AlgoTest
 
     [Fact]
     public void QuickSortTest()
-    {
-      var sorter = new QuickSort(ToSortList());
+    {      
+      var sorter = new QuickSort("37145829".Select(c => (IComparable)c).ToList());
       SortTest(sorter);
     }
 

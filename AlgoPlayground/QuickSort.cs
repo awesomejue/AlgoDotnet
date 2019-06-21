@@ -23,30 +23,34 @@ namespace AlgoPlayground
 
     void quickSort(List<IComparable> list, int left, int right)
     {
-      if (left >= right) {
+      if (left >= right)
+      {
         return;
       }
 
-      int pivot = random.Next(left, right);
+      int pivot = random.Next(left, right - 1);
 
-      partion(list, left, right, pivot);
+      partition(list, left, right, pivot);
       quickSort(list, left, pivot);
       quickSort(list, pivot + 1, right);
     }
 
-    void partion(List<IComparable> list, int left, int right, int pivot)
+    void partition(List<IComparable> list, int left, int right, int pivot)
     {
       list.Swap(right, pivot);
 
       int rover = left;
       for (int i = left; i < right; i++)
       {
-          if (list[rover].Lessthan(list[right]))
-          {
-              list.Swap(i, rover++);
-          }
+        if (list[i].Lessthan(list[right]))
+        {
+          // Console.WriteLine($"{i}, {rover}");
+          list.Swap(i, rover++);
+        }
       }
+
       list.Swap(rover, right);
+      Console.WriteLine($"{String.Concat(List)} | pivot: {list[pivot]} at {pivot}");
     }
   }
 }
