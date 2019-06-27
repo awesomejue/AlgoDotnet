@@ -39,11 +39,11 @@ namespace AlgoTest
     [Fact]
     public void QuickSortTest()
     {      
-      var sorter = new QuickSort("37145829".Select(c => (IComparable)c).ToList());
+      var sorter = new QuickSort(ToSortList());
       SortTest(sorter);
     }
 
-    public void SortTest(IAlgoSort sorter)
+    private void SortTest(IAlgoSort sorter)
     {
       Console.WriteLine($"Sorter: {sorter.GetType()}");
 

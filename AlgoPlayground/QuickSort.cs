@@ -28,15 +28,15 @@ namespace AlgoPlayground
         return;
       }
 
-      int pivot = random.Next(left, right - 1);
-
-      partition(list, left, right, pivot);
-      quickSort(list, left, pivot);
+      int pivot = partition(list, left, right, random.Next(left, right));
+      quickSort(list, left, pivot - 1);
       quickSort(list, pivot + 1, right);
     }
 
-    void partition(List<IComparable> list, int left, int right, int pivot)
+    int partition(List<IComparable> list, int left, int right, int pivot)
     {
+      // Console.WriteLine($"{String.Concat(List)} | left: {left}, right: {right}, pivot: {list[pivot]} at {pivot}");
+
       list.Swap(right, pivot);
 
       int rover = left;
@@ -46,11 +46,13 @@ namespace AlgoPlayground
         {
           // Console.WriteLine($"{i}, {rover}");
           list.Swap(i, rover++);
+          // Console.WriteLine($"{String.Concat(List)}");
         }
       }
 
       list.Swap(rover, right);
-      Console.WriteLine($"{String.Concat(List)} | pivot: {list[pivot]} at {pivot}");
+
+      return rover;
     }
   }
 }
